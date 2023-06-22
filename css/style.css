@@ -1,0 +1,196 @@
+:root{
+    /* Primary */
+    --clr-desatured-red: hsl(0, 36%, 70%);
+    --clr-soft-red: hsl(0, 93%, 68%);
+    /* Neutral */
+    --clr-neutral-black: hsl(0, 0%, 0%);
+    --clr-neutral-grayish-red: hsl(0, 6%, 24%);
+    /* Gradient */
+    --clr-gradient-light: linear-gradient(135deg,hsl(0, 0%, 100%),hsl(0, 100%, 98%));
+    --clr-gradient-red: linear-gradient(135deg,hsl(0, 80%, 86%),hsl(0, 74%, 74%));
+    /* Font */
+    --ff-base: 'Josefin Sans', sans-serif;
+    --fw-light: 200;
+    --fw-regular: 400;
+    --fw-bold: 600;
+}
+*,*::before,*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+h1,h2,h3,h4,h5,h6,p{
+    line-height: 1;
+    overflow-wrap: break-word;
+}
+img,svg,canvas,picture{
+    display: block;
+    max-width: 100%;
+}
+button,a,input{
+    text-decoration: none;
+    border: none;
+    font: inherit;
+}
+body{
+    width: 100%;
+    min-height: 100vh;
+    font-family: var(--ff-base);
+    color: var(--clr-desatured-red);
+    background: var(--clr-gradient-light);
+}
+.article{
+    display: grid;
+}
+.header{
+    padding: 2rem;
+}
+.logo{
+    width: 6rem;
+}
+.hero_mobileImage{
+    width: 100%;
+    max-height: 25rem;
+    object-fit: cover;
+    object-position: 50% 0%;
+}
+.hero_desktopImage{
+    display: none;
+}
+.title{
+    margin: 4.25rem auto 0;
+    padding: 0 1rem;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    font-weight: var(--fw-light);
+    letter-spacing: 10px;
+    text-align: center;
+    max-width: 25rem;
+}
+.title > span {
+    color: var(--clr-neutral-grayish-red);
+    font-weight: var(--fw-bold);
+}
+.text{
+    margin-top: 1.25rem;
+    padding: 0 2rem;
+    text-align: center;
+    font-size: .875rem;
+    line-height: 1.6;
+}
+.form{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 1.75rem auto;
+    width: 19rem; 
+    position: relative;
+}
+.form_input{
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border: 1px solid hsl(0, 74%, 74%);
+    border-radius: 2rem;
+    font-size: .875rem;
+    background-color: transparent;
+    color: var(--clr-neutral-black);
+    font-weight: var(--fw-bold);
+    opacity: 70%;
+}
+.error-icon{
+    width: 25px;
+    height: 25px;
+    right: 27%;
+    top: 25%;
+    position: absolute;
+    background: url(/images/icon-error.svg);
+    background-repeat: no-repeat;
+    visibility: hidden;
+}
+.notif{
+    display: none;
+    text-align: center;
+    margin: -1rem auto 2rem;
+    font-size: .875rem;
+}
+.form_input:focus{
+    outline-color: hsla(0, 0%, 20%, 0.5);
+}
+.form_buttonSubmit{
+    margin-left: -4.25rem;
+    padding: .975rem 1.75rem;
+    border-radius: 2.5rem;
+    background: var(--clr-gradient-red);
+    z-index: 1;
+}
+.form_buttonSubmit:hover{
+    background: hsl(0, 80%, 86%);
+}
+@media (min-width: 768px){
+    body{
+        background-image: url(/images/bg-pattern-desktop.svg);
+        background-position: right 100% top 100%;
+    }
+    .article{
+        grid-template-columns: 60% 40%;
+    }
+    .hero_mobileImage{
+        display: none;
+    }
+    .hero_desktopImage{
+        display: block;
+        object-fit: cover;
+        width: 100%;
+        height: 100vh;
+    }
+    .mainContent{
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        align-items: flex-start;
+        margin: 3rem auto 2rem;
+    }
+    .mainContent > *{
+        padding: 0;
+    }
+    .logo{
+        width: 10rem;
+    }
+    .title{
+        margin: 4.25rem 0 0;
+        font-size: 4rem;
+        letter-spacing: 17px;
+        text-align: left;
+        max-width: 30rem;
+    }
+    .text{
+        max-width: 27rem;
+        margin-top: 1.25rem;
+        text-align: left;
+        font-size: 1rem;
+    }
+    .form{
+        margin: 3rem 0 0;
+        width: 100%; 
+        max-width: 25rem;
+    }
+    .form_input{
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+        color: var(--clr-neutral-black);
+    }
+    .form_buttonSubmit{
+        margin-left: -5.75rem;
+        padding: 1rem 2.5rem;
+        border-radius: 2.5rem;
+        background: var(--clr-gradient-red);
+    }
+    .form_buttonSubmit:hover{
+        box-shadow: 0px 5px 15px 3px hsla(0, 70%, 60%, 0.5);
+    }
+    .notif{
+        margin: .5rem auto 0 1rem;
+        font-size: .875rem;
+    }
+}
